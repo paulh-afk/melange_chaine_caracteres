@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int rechercheChar(char *chaine, char caractere);
 int tailleChaine(char *chaine);
@@ -8,14 +9,24 @@ void supprimerCaractereEntree(char *chaine);
 
 int main() {
     char motSecret[15];
+    int randNum = 0;
+
+    srand(time(0));
 
     printf("Entrer un mot secret : ");
 
     if(motSecret && fgets(motSecret, 15, stdin) != NULL) {
         int *positionEntrer = NULL;
-        printf("%s\n", motSecret);
 
-        printf("%d\n%d", tailleChaine(motSecret), rechercheChar(motSecret, 10));
+        supprimerCaractereEntree(motSecret);
+
+        for(int i = 0; i < tailleChaine(motSecret); i++) {
+            randNum = rand() % tailleChaine(motSecret);
+
+            printf("%c\n", motSecret[randNum]);
+        }
+
+        afficherCaracteres(motSecret);
     }
 
     return 0;
