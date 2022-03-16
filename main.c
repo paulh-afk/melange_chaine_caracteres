@@ -26,7 +26,7 @@ int main() {
             printf("%c\n", motSecret[randNum]);
         }
 
-        afficherCaracteres(motSecret);
+        printf("%s\n", motSecret);
     }
 
     return 0;
